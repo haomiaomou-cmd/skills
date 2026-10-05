@@ -15,12 +15,17 @@ __pycache__/
 venv/
 
 # Generated assets (keep the repo lightweight)
-generated-images/
-assets/
-*.png
-*.jpg
-*.jpeg
-!docs/**/*.png
-
-# Logs
+# 注意：不要用 `*.png` / `assets/` 这类全局规则——技能目录内的参考图、
+# 示例成品、辅助脚本是技能的一部分，需要随仓库分发。
+# 只忽略仓库根层与工作区级的临时产物。
+/generated-images/
+/workspace/
+/tmp/
 *.log
+
+# 技能目录内的资源一律保留（白名单例外，防止上面的规则被误用）
+!skills/**/assets/**
+!skills/**/*.png
+!skills/**/*.jpg
+!skills/**/*.jpeg
+!skills/**/*.py
